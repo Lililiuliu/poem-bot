@@ -1,0 +1,34 @@
+
+.listitem{
+  width: 750rpx;
+  padding:1rem
+}
+
+.preview{
+  width: 61.8%;
+  height: 100%;
+  font-weight: 300;
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.add-btn,.my-btn,.about-btn {
+  margin-left: 1em;
+  color: black;
+}
+
+.btn-group {
+  text-align:center;
+  padding-right: 1em;
+}
+
+.weui-loadmore_line .weui-loadmore__tips {
+  background-color:#F6F6F6;
+}
+
+
+

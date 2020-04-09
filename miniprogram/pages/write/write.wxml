@@ -1,0 +1,36 @@
+	<view class="paper container">
+		<input class="title" placeholder="标题" bindinput="inputtilte" disabled="{{dialog}}"></input>
+		<textarea class="content" placeholder="你的诗从这开始..." auto-height maxlength="5000" bindinput="inputcontent" disabled="{{dialog}}"></textarea>
+	</view>
+	<view class="bottom">
+		<view class="toolbar">
+			<view class="info" bindtap="open">{{editsign}} ｜ {{poem.displaytime}} </view>
+			<view class="edit" bindtap="open">编辑</view>
+			<view class="space"></view>
+			<button class="send-btn weui-btn weui-btn_mini weui-btn_primary" size="mini"  bindtap="send">发表</button>
+		</view>
+		<view class="footer"></view>
+
+		<view class="weui-animate-fade-in" wx:if="{{dialog}}">
+			<view class="weui-mask" bindtap="close"></view>
+			<view class="weui-half-screen-dialog">
+				<view class="weui-half-screen-dialog__hd">
+					<view class="weui-half-screen-dialog__hd__side" bindtap="close">
+						<a class="weui-icon-btn">返回<i class="weui-icon-close-thin"></i></a>
+					</view>
+					<view class="weui-half-screen-dialog__hd__main">
+						<strong class="weui-half-screen-dialog__title">编辑署名</strong>
+						<view class="weui-half-screen-dialog__subtitle">修改署名后作品不会在你的主页显示</view>
+					</view>
+				</view>
+				<view class="weui-half-screen-dialog__bd">
+					<input class="weui-input" placeholder="请填写署名" style="text-align:center" placeholder-class="weui-input__placeholder" cursor-spacing="100" auto-focus value="{{poem.sign}}" bindinput="getSign"/>
+				</view>
+				<view class="weui-half-screen-dialog__ft">
+					<a class="weui-btn weui-btn_default" bindtap="anonymous">匿名</a>
+					<a class="weui-btn weui-btn_primary" bindtap="setSign">修改署名</a>
+				</view>
+			</view>
+		</view>
+
+	</view>

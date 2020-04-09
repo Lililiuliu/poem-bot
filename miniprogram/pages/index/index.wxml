@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="weui-animate-fade-in page" >
+	<view class="btn-group">
+		<button class="add-btn weui-btn weui-btn_mini weui-btn_default" size="mini" open-type="getUserInfo" bindgetuserinfo="test" lang="zh_CN">写诗</button>
+		<a class="my-btn weui-btn weui-btn_mini weui-btn_default" size="mini">我的</a>
+		<a class="about-btn weui-btn weui-btn_mini weui-btn_default" size="mini">关于</a>
+	</view>
+	<view class="weui-cells" wx:for="{{poemsList}}" wx:key="index" wx:for-item="poem">
+		<view class="listitem container weui-cell">
+			<text class="title weui-media-box__title">{{poem.poem.title}}</text>
+			<text class="preview" style="text-align:{{poem.align}}">{{poem.poem.content}}</text>
+			<view class="weui-media-box__info info">
+				<view class="weui-media-box__info__meta">{{poem.poem.sign}}</view>
+				<view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{poem.poem.displaytime}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="weui-loadmore" wx:if="{{isloading}}">
+			<i class="weui-loading"></i>
+			<text class="weui-loadmore__tips">正在加载</text>
+		</view>
+		<view class="weui-loadmore weui-loadmore_line weui-loadmore_dot" wx:if="{{reachbottom}}">
+			<text class="weui-loadmore__tips"></text>
+		</view>
+</view>
