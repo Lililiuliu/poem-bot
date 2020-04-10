@@ -5,14 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    poem:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function () {
+    const that = this
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('acceptDataFromOpenerPage', function(data) {
+      that.setData({
+        poem:data.data
+      })
+    })
   },
 
   /**

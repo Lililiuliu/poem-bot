@@ -5,15 +5,19 @@
 }
 
 .preview{
-  width: 61.8%;
+  width: 300px;
   height: 100%;
   font-weight: 300;
+  line-height: 2;
+  margin-bottom: 2rem;
 }
 
 .title {
   margin-bottom: 1rem;
   font-size: 18px;
   font-weight: bolder;
+  width: 300px;
+  text-align: center;
 }
 
 .add-btn,.my-btn,.about-btn {
@@ -28,6 +32,10 @@
 
 .weui-loadmore_line .weui-loadmore__tips {
   background-color:#F6F6F6;
+}
+
+.onpress{
+  opacity: 0.8;
 }
 
 

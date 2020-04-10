@@ -23,6 +23,7 @@ page {
 .content {
   display: block;
   flex: 1;
+  
   margin-bottom: calc(28px + env(safe-area-inset-bottom)/2);
 }
 

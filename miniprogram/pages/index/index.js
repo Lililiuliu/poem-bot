@@ -49,6 +49,7 @@ Page({
     }
   },
 
+  // 获取列表数据
   getList: function (type, callback) {
     switch (type) {
 
@@ -92,6 +93,17 @@ Page({
         })
         break;
     }
+  },
+
+  taplistitem:function(e){
+    var poem = e.currentTarget.dataset.poem
+    wx.navigateTo({
+      url: '../read/read',
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: poem })
+      }
+    })
   },
 
   onLoad: function () {

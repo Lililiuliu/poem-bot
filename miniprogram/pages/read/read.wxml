@@ -1,2 +1,4 @@
-<!--pages/read/read.wxml-->
-<text>pages/read/read.wxml</text>
+
+<text class="title">{{poem.poem.title}}</text>
+<text class="content">{{poem.poem.content}}</text>
+<view class="info weui-footer__links" >{{poem.poem.sign}} ｜ {{poem.poem.displaytime}} </view>
