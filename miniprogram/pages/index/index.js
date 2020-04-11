@@ -1,6 +1,4 @@
 //index.js
-const app = getApp()
-var cloud = require('../../utils/cloud.js');
 const db = wx.cloud.database()
 
 Page({
@@ -14,12 +12,13 @@ Page({
   },
 
   // 点击写诗按钮
-  test: function (e) {
+  tapWrite: function (e) {
     wx.showLoading({
       title: '登录中',
     })
     var sign = wx.getStorageSync('sign')
-    if (!sign) {
+    var openid = wx.getStorageSync('openid') 
+    if (!sign || !openid) {
       wx.cloud.callFunction({
         name: 'getuserinfo',
         data: {
@@ -28,7 +27,9 @@ Page({
       }).then(res => {
         console.log(res)
         let sign = res.result.userinfo.data.nickName
+        let openid = res.result.userInfo.openId
         wx.setStorageSync('sign', sign)
+        wx.setStorageSync('openid', openid)
         wx.navigateTo({
           url: '../write/write?sign=' + sign,
           success: () => {
@@ -42,6 +43,45 @@ Page({
     else {
       wx.navigateTo({
         url: '../write/write?sign=' + sign,
+        success: () => {
+          wx.hideLoading()
+        }
+      })
+    }
+  },
+
+  // 点击我的按钮
+  tapMy: function (e) {
+    wx.showLoading({
+      title: '登录中',
+    })
+    var sign = wx.getStorageSync('sign')
+    var openid = wx.getStorageSync('openid') 
+    if (!sign || !openid) {
+      wx.cloud.callFunction({
+        name: 'getuserinfo',
+        data: {
+          userinfo: wx.cloud.CloudID(e.detail.cloudID)
+        }
+      }).then(res => {
+        console.log(res)
+        let sign = res.result.userinfo.data.nickName
+        let openid = res.result.userInfo.openId
+        wx.setStorageSync('sign', sign)
+        wx.setStorageSync('openid', openid)
+        wx.navigateTo({
+          url: '../my/my?openid=' + openid,
+          success: () => {
+            wx.hideLoading()
+          }
+        })
+      }).catch(err => {
+        throw err
+      })
+    }
+    else {
+      wx.navigateTo({
+        url: '../my/my?openid=' + openid,
         success: () => {
           wx.hideLoading()
         }
@@ -108,6 +148,9 @@ Page({
 
   onLoad: function () {
     this.getList('down')
+  },
+  onShow:function() { 
+    this.onLoad()  
   },
 
   onPullDownRefresh() {

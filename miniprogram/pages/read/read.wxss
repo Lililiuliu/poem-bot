@@ -17,14 +17,18 @@
 .info {
   text-align: left;
   width: 300px;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  display: flex;
+  flex-direction: row;
   font-size: 13px;
-  line-height: 18px;
+  padding-bottom: 1rem;
+}
+.detail{
+  flex: 1;
+}
+
+.delete{
+  width: 30px;
+  opacity: 0.5;
 }
 
 page {

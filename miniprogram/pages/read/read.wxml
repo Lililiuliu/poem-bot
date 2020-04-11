@@ -1,4 +1,31 @@
+<block class="weui-animate-fade-in">
+	<text class="title">{{poem.poem.title}}</text>
+	<view class="info">
+		<view class="detail" bindtap="tapInfo">{{poem.poem.sign}} ｜ {{poem.poem.displaytime}}</view>
+		<a class="delete" wx:if="ismy" bindtap="tapDelete">删除</a>
+	</view>
+	<text class="content">{{poem.poem.content}}</text>
+</block>
 
-<text class="title">{{poem.poem.title}}</text>
-<text class="content">{{poem.poem.content}}</text>
-<view class="info weui-footer__links" >{{poem.poem.sign}} ｜ {{poem.poem.displaytime}} </view>
+<view class="weui-animate-fade-in" wx:if="{{dialog}}">
+        <view class="weui-mask" bindtap="close"></view>
+        <view class="weui-half-screen-dialog">
+            <view class="weui-half-screen-dialog__hd">
+                <view class="weui-half-screen-dialog__hd__side" bindtap="close">
+                    <a class="weui-icon-btn">返回<i class="weui-icon-close-thin"></i></a>
+                </view>
+                <view class="weui-half-screen-dialog__hd__main">
+                    <strong class="weui-half-screen-dialog__title">是否确认删除？</strong>
+                </view>
+            </view>
+            <view class="weui-half-screen-dialog__bd">
+                <view class="weui-half-screen-dialog__tips">
+                    删除后无法恢复，删除前可以复制内容到手机剪贴板，收否确定删除？
+                </view>
+            </view>
+            <view class="weui-half-screen-dialog__ft">
+                <a class="weui-btn weui-btn_default" bindtap="copy">复制内容</a>
+                <a class="weui-btn weui-btn_warn" bindtap="delete">删除</a>
+            </view>
+        </view>
+    </view>

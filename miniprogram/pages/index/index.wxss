@@ -7,9 +7,16 @@
 .preview{
   width: 300px;
   height: 100%;
+  font-size: 16px;
   font-weight: 300;
   line-height: 2;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .title {
@@ -17,7 +24,7 @@
   font-size: 18px;
   font-weight: bolder;
   width: 300px;
-  text-align: center;
+  text-align: left;
 }
 
 .add-btn,.my-btn,.about-btn {
@@ -38,5 +45,14 @@
   opacity: 0.8;
 }
 
+.info{
+  width: 300px;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  font-size: 13px;
+  line-height: 18px;
+}
 
 

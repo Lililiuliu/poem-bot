@@ -1,15 +1,15 @@
 <!--index.wxml-->
 <view class="weui-animate-fade-in page" >
 	<view class="btn-group">
-		<button class="add-btn weui-btn weui-btn_mini weui-btn_default" size="mini" open-type="getUserInfo" bindgetuserinfo="test" lang="zh_CN">写诗</button>
-		<a class="my-btn weui-btn weui-btn_mini weui-btn_default" size="mini">我的</a>
-		<a class="about-btn weui-btn weui-btn_mini weui-btn_default" size="mini">关于</a>
+		<button class="add-btn weui-btn weui-btn_mini weui-btn_default" size="mini" open-type="getUserInfo" bindgetuserinfo="tapWrite" lang="zh_CN">写诗</button>
+		<button class="add-btn weui-btn weui-btn_mini weui-btn_default" size="mini" open-type="getUserInfo" bindgetuserinfo="tapMy" lang="zh_CN">我的</button>
+		<navigator class="about-btn weui-btn weui-btn_mini weui-btn_default" size="mini" url="../about/about">关于</navigator>
 	</view>
 	<view class="weui-cells" wx:for="{{poemsList}}" wx:key="index" wx:for-item="poem">
 		<view hover-class="onpress" data-poem="{{poem}}" bindtap="taplistitem" class="listitem container weui-cell">
 			<text class="title weui-media-box__title">{{poem.poem.title}}</text>
 			<text class="preview">{{poem.poem.content}}</text>
-			<view class="weui-media-box__info info">
+			<view class="info">
 				<view class="weui-media-box__info__meta">{{poem.poem.sign}}</view>
 				<view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{poem.poem.displaytime}}</view>
 			</view>
