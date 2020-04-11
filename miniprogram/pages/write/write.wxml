@@ -1,6 +1,6 @@
 	<view class="paper container">
-		<input class="title" placeholder="标题" bindinput="inputtilte" wx:if="{{!dialog}}"></input>
-		<textarea class="content" placeholder="你的诗从这开始..." auto-height maxlength="5000" bindinput="inputcontent" wx:if="{{!dialog}}"></textarea>
+		<input class="title" placeholder="标题" bindinput="inputtilte" hidden="{{dialog}}"></input>
+		<textarea class="content" placeholder="你的诗从这开始..." auto-height maxlength="5000" bindinput="inputcontent" hidden="{{dialog}}"></textarea>
 	</view>
 	<view class="bottom">
 		<view class="toolbar">
