@@ -3,7 +3,7 @@
 	<text class="content">{{poem.poem.content}}</text>
   <view class="info">
 		<view class="detail" bindtap="tapInfo">{{poem.poem.sign}} ｜ {{poem.poem.displaytime}}</view>
-		<a class="delete" wx:if="ismy" bindtap="tapDelete">删除</a>
+		<a class="delete" wx:if="{{ismy}}" bindtap="tapDelete">删除</a>
 	</view>
 </block>
 

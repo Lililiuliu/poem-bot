@@ -112,7 +112,7 @@ Page({
           isloading: true
         })
         var skip = this.data.p
-        db.collection('poem').orderBy('poem.createtime', 'desc').skip(skip * 5).limit(2).get().then(res => {
+        db.collection('poem').orderBy('poem.createtime', 'desc').skip(skip * 5).limit(5).get().then(res => {
 
           if (res.data.length != 0) {
             var poemsList = this.data.poemsList.concat(res.data)

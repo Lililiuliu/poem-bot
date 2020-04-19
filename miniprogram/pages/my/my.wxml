@@ -1,4 +1,12 @@
 <view class="weui-animate-fade-in page">
+<view class="container notice" >
+<view wx:if="{{notice.show}}">你已经{{notice.days}}天没有写诗了。</view>
+<view wx:if="{{notice.new}}">你多久没有写诗了？</view>
+<view class="btn-group" wx:if="{{notice.show||notice.new}}">
+		<button class="add-btn weui-btn weui-btn_mini weui-btn_default" size="mini" bindtap="tapWrite" >写诗</button>
+		<button class="close-btn weui-btn weui-btn_mini weui-btn_default" size="mini" bindtap="close" >算了</button>
+</view>
+</view>
 	<view class="weui-cells" wx:for="{{poemsList}}" wx:key="index" wx:for-item="poem">
 		<view hover-class="onpress" data-poem="{{poem}}" bindtap="taplistitem" class="listitem container weui-cell">
 			<text class="title weui-media-box__title">{{poem.poem.title}}</text>

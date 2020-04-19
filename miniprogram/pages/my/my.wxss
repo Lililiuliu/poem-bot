@@ -29,12 +29,6 @@
   font-weight: 300;
   line-height: 2;
   margin-bottom: 1rem;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
 }
 
 .title {
@@ -44,3 +38,21 @@
   width: 300px;
   text-align: left;
 }
+
+.notice {
+  padding-top: 1rem;
+}
+
+.add-btn,.close-btn {
+  color: black;
+}
+
+.add-btn{
+  margin-right: 1rem;
+}
+
+.close-btn{
+  margin-left: 1rem;
+}
+
+
